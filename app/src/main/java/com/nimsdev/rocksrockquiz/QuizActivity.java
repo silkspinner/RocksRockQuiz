@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class QuizActivity extends Activity {
 
@@ -41,44 +42,26 @@ public class QuizActivity extends Activity {
 
             @Override
             public void onClick(View view) {
+            String toastText;
                 mTotal++;
-                mAnswerText.setText(QuizData.answersText[mQuestionNumber-1]);
+            mAnswerText.setText(QuizData.answersText[mQuestionNumber-1]);
 
-                mHandler.postDelayed(new Runnable() {
-                    public void run() {
 
-                        if (mAnswer == true){
-                            mScore++;
-                            updateScore();
+            if (mAnswer == true){
+                mScore++;
+                toastText = "Correct!";
+            } else {
+                toastText = "Wrong.";
+            }
+            updateScore();
 
-                            //check for last question
-                            if (mQuestionNumber == QuizData.questions.length){
-                                Intent i = new Intent(QuizActivity.this, ResultsActivity.class);
-                                Bundle bundle = new Bundle();
-                                bundle.putInt("finalScore", mScore);
-                                i.putExtras(bundle);
-                                QuizActivity.this.finish();
-                                startActivity(i);
-                            } else {
-                                updateQuestion();
-                            }
-                        } else {
-                            updateScore();
-                            if (mQuestionNumber == QuizData.questions.length){
-                                Intent i = new Intent(QuizActivity.this, ResultsActivity.class);
-                                Bundle bundle = new Bundle();
-                                bundle.putInt("finalScore", mScore);
-                                i.putExtras(bundle);
-                                QuizActivity.this.finish();
-                                startActivity(i);
-                            } else {
-                                updateQuestion();
-                            }
-                        }
-
-                    }
-                }, 5000);
-
+            //check for last question
+            if (isLastQuestion()){
+                results();
+            } else {
+                updateQuestion();
+            }
+            Toast.makeText(QuizActivity.this, toastText, Toast.LENGTH_SHORT).show();
             }
 
         });
@@ -88,50 +71,27 @@ public class QuizActivity extends Activity {
 
             @Override
             public void onClick(View view) {
-                mTotal++;
-                mAnswerText.setText(QuizData.answersText[mQuestionNumber-1]);
+            String toastText;
+            mTotal++;
+            mAnswerText.setText(QuizData.answersText[mQuestionNumber-1]);
+            if (mAnswer == false){
+                mScore++;
+                toastText = "Correct!";
+            } else {
+                toastText = "Wrong.";
+            }
+            updateScore();
 
-                mHandler.postDelayed(new Runnable() {
-                    public void run() {
-
-                        if (mAnswer == false){
-                            mScore++;
-                            updateScore();
-
-                            //check for last question
-                            if (mQuestionNumber == QuizData.questions.length){
-                                Intent i = new Intent(QuizActivity.this, ResultsActivity.class);
-                                Bundle bundle = new Bundle();
-                                bundle.putInt("finalScore", mScore);
-                                i.putExtras(bundle);
-                                QuizActivity.this.finish();
-                                startActivity(i);
-                            } else {
-                                updateQuestion();
-                            }
-                        } else {
-                            updateScore();
-                            if (mQuestionNumber == QuizData.questions.length){
-                                Intent i = new Intent(QuizActivity.this, ResultsActivity.class);
-                                Bundle bundle = new Bundle();
-                                bundle.putInt("finalScore", mScore);
-                                i.putExtras(bundle);
-                                QuizActivity.this.finish();
-                                startActivity(i);
-                            } else {
-                                updateQuestion();
-                            }
-                        }
-
-                    }
-                }, 5000);
-
+            //check for last question
+            if (mQuestionNumber == QuizData.questions.length){
+                results();
+            } else {
+                updateQuestion();
+            }
+            Toast.makeText(QuizActivity.this, toastText, Toast.LENGTH_SHORT).show();
             }
 
         });
-
-
-
     }
 
     private void updateQuestion(){
@@ -140,6 +100,20 @@ public class QuizActivity extends Activity {
         mAnswerText.setText("");
         mAnswer = QuizData.answers[mQuestionNumber];
         mQuestionNumber++;
+    }
+
+    //check for last question
+    boolean isLastQuestion() {
+        return mQuestionNumber == QuizData.questions.length;
+    }
+
+    private void results() {
+        Intent i = new Intent(QuizActivity.this, ResultsActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putInt("finalScore", mScore);
+        i.putExtras(bundle);
+        QuizActivity.this.finish();
+        startActivity(i);
     }
 
     public void updateScore(){
