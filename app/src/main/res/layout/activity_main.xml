@@ -1,27 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
+    android:background="@mipmap/background"
     tools:context="com.nimsdev.rocksrockquiz.MainActivity">
 
+    <EditText
+        android:id="@+id/wsrcEditText"
+        android:layout_width="303dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/background_light"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="West Seattle Rock Club"
+        android:textAlignment="center"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
+        android:id="@+id/startButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start Rock Quiz"
-        android:id="@+id/startButton"
-        android:textStyle="bold"
-        android:textColor="#fff"
-        android:padding="15dp"
-        android:textSize="20sp"
-        android:fontFamily="casual"
-        android:background="#4CAF50"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
-</RelativeLayout>
+        android:layout_marginTop="56dp"
+        android:background="@android:color/holo_blue_light"
+        android:fontFamily="casual"
+        android:padding="15dp"
+        android:text="Start Rock Quiz Level 1"
+        android:textColor="#fff"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wsrcEditText" />
+
+    <Button
+        android:id="@+id/startButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="44dp"
+        android:background="@android:color/holo_blue_light"
+        android:fontFamily="casual"
+        android:padding="15dp"
+        android:text="Start Rock Quiz Level 2"
+        android:textColor="#fff"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startButton1" />
+
+    <Button
+        android:id="@+id/startButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="72dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:background="@android:color/holo_blue_light"
+        android:fontFamily="casual"
+        android:padding="15dp"
+        android:text="Start Rock Quiz Level 3"
+        android:textColor="#fff"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startButton2" />
+
+</android.support.constraint.ConstraintLayout>
