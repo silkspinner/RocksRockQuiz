@@ -65,7 +65,7 @@
         android:background="@android:color/holo_blue_light"
         android:fontFamily="casual"
         android:padding="12dp"
-        android:text="Retry Rock Quiz"
+        android:text="Retry Rock and Mineral Quiz"
         android:textColor="#fff"
         android:textSize="36sp"
         android:textStyle="bold"
