@@ -18,13 +18,15 @@ import android.widget.Toast;
 
 public class QuizActivity extends Activity {
 
-    private TextView mScoreView, mQuestion, mAnswerText, mTitleTextView, mAttributionTextView;
+    private TextView mScoreView, mQuestion, mAnswerText, mTitleTextView,
+            mAttributionTextView, mDifficultyTextView;
     private ImageView mImageView;
     private Button mTrueButton, mFalseButton, mNextButton;
 
     private boolean mAnswer;
     private int mScore = 0;
     private int mQuestionNumber = 0;
+    private int mLevel;
 
     private int mQuantity = 10;
 
@@ -51,6 +53,7 @@ public class QuizActivity extends Activity {
         mNextButton.setVisibility(View.INVISIBLE); // initially next button should not be seen
         mTitleTextView = (TextView)findViewById(R.id.titleTextView);
         mAttributionTextView = (TextView)findViewById(R.id.attributionTextView);
+        mDifficultyTextView = (TextView)findViewById(R.id.difficultyTextView);
 
         // establish shared preferences
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
@@ -59,10 +62,10 @@ public class QuizActivity extends Activity {
 
         //retreive level from bundle
         Bundle bundle = getIntent().getExtras();
-        int level = bundle.getInt("level", 1);
+        mLevel = bundle.getInt("level", 1);
 
         // establish list of quiz quiestions
-        questionList = QuizData.QuizList(mQuantity, level);
+        questionList = QuizData.QuizList(mQuantity, mLevel);
         updateQuestion();
 
         //True button logic
@@ -117,6 +120,7 @@ public class QuizActivity extends Activity {
                     Bundle bundle = new Bundle();
                     bundle.putInt("finalScore", mScore);
                     bundle.putInt("quantity", mQuantity);
+                    bundle.putInt("level", mLevel);
                     i.putExtras(bundle);
                     QuizActivity.this.finish();
                     startActivity(i);
@@ -131,7 +135,6 @@ public class QuizActivity extends Activity {
                     mQuestionNumber++;
                     updateQuestion();
                 }
-
             }
         });
     }
@@ -142,8 +145,11 @@ public class QuizActivity extends Activity {
         mImageView.setImageResource(questionList[mQuestionNumber].image);
         mQuestion.setText(questionList[mQuestionNumber].question);
         mAnswerText.setText("");
+        mDifficultyTextView.setText(String.valueOf(questionList[mQuestionNumber].difficulty));
+        //mDifficultyTextView.setText("2");
         mAnswer = questionList[mQuestionNumber].answer;
         mTitleTextView.setText(questionList[mQuestionNumber].title);
+
         if (questionList[mQuestionNumber].attribution.equals("") ){
             mAttributionTextView.setText("");
         } else {

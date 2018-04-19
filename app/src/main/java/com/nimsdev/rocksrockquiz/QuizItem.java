@@ -18,9 +18,10 @@ public class QuizItem {
     public String attribLink; // link for attribution
     public Boolean dark; // Boolean for color of background
     public Boolean used; // Use during question selection
+    public int difficulty; // Use during question selection
 
-    QuizItem(String question, String response, Boolean answer,
-             int image, String title, String attribution, String attribLink, Boolean dark) {
+    QuizItem(String question, String response, Boolean answer, int image,
+             String title, String attribution, String attribLink, Boolean dark, int difficulty) {
         this.question = question;
         this.response = response;
         this.answer = answer;
@@ -30,6 +31,7 @@ public class QuizItem {
         this.attribLink = attribLink;
         this.dark = dark;
         this.used = false;
+        this.difficulty = difficulty;
     }
 }
 
