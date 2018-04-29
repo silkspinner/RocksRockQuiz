@@ -270,13 +270,24 @@ public class QuizData {
                     false,
                     1
             ),
+            new QuizItem(
+                    "Bright and colorful against the nights sky, a fireworks display is always a crowd pleaser. Without minerals fireworks would provide only bland, monotone imagery.",
+                    "TRUE, The brilliant colors in fireworks are due to mineral additives. For example; Strontium for red, Barium for Green and Copper Halides for Blue.",
+                    true,
+                    R.mipmap.fireworks,
+                    "Fire works for New Years 2006. Sydney Opera House, AU",
+                    "Rob Chandler",
+                    "https://www.flickr.com/people/96147639@N00",
+                    false,
+                    1
+            ),
         };
 
     // LEVEL 2 Questions
     public static QuizItem[] itemsLvl2 = new QuizItem[]{
 
             new QuizItem(
-                    "This orange form of Quartz, which was once more valuable than Diamonds, is known as Carborundum.",
+                    "This orange form of Quartz, which was once more valuable than Diamonds, is known as Carminite.",
                     "FALSE, actually known as Carnelian, this beautiful stone ranges in color from amber to orange.",
                     false,
                     R.mipmap.carnelian,
@@ -522,9 +533,20 @@ public class QuizData {
                     "TRUE, Knapping is a technique where by hard, brittle stone is hand worked by using tools to flake off unwanted material. This skill is still being taught today.",
                     true,
                     R.mipmap.flint_arrowheads,
-                    "Leaf shaped neolithic arrowhead, Warwickshire, UK,",
+                    "Leaf shaped neolithic arrowhead, Warwickshire, UK",
                     "Birmingham Museums Trust",
                     "https://commons.wikimedia.org/wiki/File:Neolithic_arrowhead,_leaf_shaped._(FindID_402881).jpg",
+                    true,
+                    2
+            ),
+            new QuizItem(
+                    "Sometimes, in the right light, minerals get their wild side on. This amazing effect is called fluorescence and it occurs under Infrared lighting.",
+                    "FALSE, Actually is is Ultraviolet (UV) light that brings out these neon colors, which are often completely different from how the mineral looks in regular light.",
+                    false,
+                    R.mipmap.fluorescent_minerals,
+                    "Collection of various fluorescent minerals",
+                    "Hgrobe",
+                    "https://commons.wikimedia.org/wiki/User:Hgrobe",
                     true,
                     2
             ),
@@ -753,7 +775,63 @@ public class QuizData {
                     true,
                     3
             ),
-        };
+            new QuizItem(
+                    "These gorgeous Brazilian gems give away their true nature in their colors. These are Tsavorites which often occur in deep greens and watermelon reds ",
+                    "FALSE, These stones are really Tourmalines; each color having its own named subgenre: Elbaite for green, Rubellite for red, Indicolite for blue etc.",
+                    false,
+                    R.mipmap.tourmaline,
+                    "Multi-colored faceted gemstones, Brazil",
+                    "crystalbenefits",
+                    "https://crystalbenefits.com/tourmaline-uses",
+                    false,
+                    3
+            ),
+            new QuizItem(
+                    "When cutting and faceting gemstones, it's all about the angles. 'Angle of Inclination' is the term for the angle at which light strikes a surface.",
+                    "FALSE, The correct name is Angle of Incidence, and to acheive the most brilliance it is important to optimize these angles when designing a gemstone.",
+                    false,
+                    R.mipmap.aoi,
+                    "Traditional brilliant diamond cut gemstone",
+                    "piecesofeight",
+                    "http://www.piecesofeight.com.au/collections/white-diamond",
+                    false,
+                    3
+            ),
+            new QuizItem(
+                    "This pretty rock is opaque and has orbs, it is an Orbicular Jasper. The particular combination of colors narrows it down to Ocean Jasper.",
+                    "TRUE, Named Ocean Jasper because the original deposit was in the ocean along the coast, these greens, pinks and oranges are typical.",
+                    true,
+                    R.mipmap.ocean_jasper,
+                    "Vintage slice, Madagascar",
+                    "worthpoint",
+                    "https://www.worthpoint.com/worthopedia/orca-outstanding-vintage-ocean-jasper-1814389564",
+                    true,
+                    3
+            ),
+            new QuizItem(
+                    "In rare circumstances, one mineral will replace another but keep the shape of the original crystals, this is called a Pseudomorph.",
+                    "TRUE, As seen in this classic Pseudomorph specimen, the black Goethite maintains the cubic crystaline structure from the original Pyrite.",
+                    true,
+                    R.mipmap.goethite_pyrite,
+                    "Crystal specimen, Goethite after Pyrite",
+                    "Rob Lavinsky",
+                    "https://commons.wikimedia.org/wiki/Commons:Robert_Lavinsky",
+                    true,
+                    3
+            ),
+            new QuizItem(
+                    "A flashy bit of Opal, when Opal has a dark background like this it is known as 'Shadow Opal'.",
+                    "FALSE, really called Black Opal, which because of its dramatic contrasts, is some of the most valuable.",
+                    false,
+                    R.mipmap.black_opal,
+                    " Opal gemstone, Lightning Ridge, New South Wales, AU",
+                    "Didier Descouens",
+                    "https://commons.wikimedia.org/wiki/User:Archaeodontosaurus",
+                    true,
+                    3
+            ),
+
+    };
 
     public static QuizItem[] QuizList(int quantity, int level) {
         /* build a list of random quiz items
